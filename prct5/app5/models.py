@@ -1,10 +1,21 @@
 from django.db import models
 
 
-class test(models.Model):
-    name = models.CharField(max_length=200)
-    Position = models.CharField(max_length=200)
-    Office = models.CharField(max_length=200)
-    Age = models.IntegerField()
-    startdate = models.DateField()
-    salary = models.IntegerField()
+
+class Employees(models.Model):
+    c1 = (
+        ('IN', 'INDIA'),
+        ('USA', 'AMERICA'),
+        ('RUS', 'RUSSIA'),
+        ('AUSTR', 'AUSTRALIA'),
+    )
+    first_name = models.CharField(max_length=20)
+    middle_name = models.CharField(max_length=20)
+    last_name = models.CharField(max_length=20)
+    salary = models.CharField(max_length=10)
+    phone = models.CharField(max_length=11)
+    Email = models.EmailField(max_length=20,default=False)
+    country = models.CharField(max_length=20, choices=c1, default=None)
+
+    def __str__(self):
+        return self.middle_name

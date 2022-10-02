@@ -1,7 +1,12 @@
+from django.contrib import admin
 from django.urls import path
+from . import views
 
-from app5 import views
-from app5.models import test
 urlpatterns = [
     path('',views.index),
-]
+    path('all_emp/',views.all_emp),
+    path('add_emp/',views.add_emp),
+    path('delete_emp/<int:id>/',views.delete_emp),
+    path('update/<int:id>', views.update, name='update'),
+    path('update/updaterecord/<int:id>', views.updaterecord, name='updaterecord'),
+    ]
